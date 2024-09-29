@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# EnglishMaster Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and responsive landing page for **EnglishMaster** courses, built with React and Tailwind CSS. The landing page features a contact form to capture leads, which are automatically stored in a Google Sheet using Pabbly Connect.
 
-## Available Scripts
+## Features
+- **Responsive Design**: Works on all devices.
+- **Lead Capture Form**: Collects names, emails, and messages from potential students.
+- **Google Sheets Integration**: All form submissions are stored in a Google Sheet.
+- **Testimonials**: Student feedback on the course.
+- **Pricing Plans**: Information on course pricing.
+- **FAQ**: Common questions answered.
 
-In the project directory, you can run:
+## Tech Stack
+- **React**
+- **Tailwind CSS**
+- **Pabbly Connect**
+- **Google Sheets**
 
-### `npm start`
+## How to Run
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Clone the project**:
+   ```bash
+   git clone https://github.com/yourusername/englishmaster-landing-page.git
+   cd englishmaster-landing-page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Install dependencies**:
+    ```bash
+    npm install
 
-### `npm test`
+3. **run the project**:
+    ```bash
+    npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Leads Storage
+All form submissions are saved in the following Google Sheet:
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRB9jY6fBwnj4V6HsfOgcrP38oyPBUy_KySyIsc11BYfj4V1ZJ21oQLldkUiKopuzaIkbhvlDZioXL1/pubhtml
