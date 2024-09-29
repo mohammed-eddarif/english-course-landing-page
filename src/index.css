@@ -2,15 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-#home{
+.all-home{
     width: 100vw;
   height: 100vh; /* This makes the section take up the full viewport height */
   background-image: url('./images/background3.png');
   background-size: cover; /* Ensures the image covers the entire section */
   background-position: center center; /* Keeps the image centered */
   background-repeat: no-repeat;
+}
+
+header{
+    background: transparent;
+    padding: 10px 0;
+    color: #001c35; 
+    z-index: 9000;
+}
+
+.activenav{
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background:rgb(3, 182, 241);
+    color: #ffffff; 
+    
+  }
+
+  nav a{
+    font-size: 18px;
+    color: #001c35;
+  }
+
+#home{
+    
   display: flex;
   justify-content: space-around;
+}
+.menu{
+    display: none;
 }
 .home-info{
     margin: 100px 0 0 0;
@@ -25,6 +55,10 @@
     font-size: 22px;
     margin: 20px 0 0 0;
 }
+.descrp-home{
+    width: 60%;
+}
+
 .home-info h2{
     font-size: 20px;
     border: 2px solid #033366;
@@ -51,7 +85,7 @@
     border-radius: 5px;
 }
 .home-img img{
-    width: 600px;
+    width: 550px;
 }
 .phon-contact p{
     font-size: 18px;
@@ -65,8 +99,23 @@
     
 }
 
+.features-box{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
 
-
+#prc-box {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap; 
+}
+#prc-card {
+    width: 300px; 
+    margin: 0;
+    
+}
 /* Features-Section  */
 
 
@@ -125,8 +174,136 @@ padding: 50px 0;
    width: 800px;
     border-bottom: #033366 3px solid;
     padding: 10px 0;
+    margin: 0 auto;
 }
 #faq-hidden{
     font-size: 18px;
     padding: 5px 0;
+}
+
+.menu-content{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 560px;
+    
+    background-color: rgba(3, 181, 241, 0.727);
+    z-index: 10000099;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+  }
+.menu-content nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.menu-content nav a{
+    font-size: 20px;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 720px) {
+    .menu{
+        display: flex;
+    }
+    .all-home{
+        height: 125vh;
+    }
+    .descrp-home{
+        padding: 0 10px;
+        width: 100%;
+    }
+    #contact-us{
+        display: flex;
+        justify-content: center;
+    }
+    #home{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    #home a{
+        display: flex;
+        justify-content: center;
+    }
+    .home-img{
+        display: flex;
+        justify-content: center;
+    }
+    nav{
+        display: none;
+    }
+    #home{
+        flex-direction: column-reverse;
+    }
+    .home-img img{
+        width: 300px;
+    }
+    .home-info{
+        margin: 0px 0 0 0;
+        
+    }
+    .home-info h1{
+        font-size: 40px;
+        font-weight: bold;
+        color: rgb(0, 59, 122);
+    }
+    .home-info p{
+        font-size: 18px;
+        margin: 20px 0 0 0;
+    }
+    .home-info h2{
+        font-size: 20px;
+        border: 2px solid #033366;
+        background-color: #003b7a;
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        padding: 8px;
+        margin: 20px 0 0 0 ;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .faq-content{
+        display: flex;
+        justify-content: space-between;
+       width: 350px;
+        border-bottom: #033366 3px solid;
+        padding: 10px 0;
+    }
+    .features-all{
+        display: flex;
+        justify-content: center;
+    }
+    .features-box{
+        display: block;
+        justify-content: center;
+        
+    }
+    
+    .box-all{
+        display: flex;
+        justify-content: center;
+        
+    }
+    
+    #prc-box {
+        flex-direction: column; 
+        align-items: center;
+    }
+    #prc-card {
+        width: 100%; 
+        max-width: 350px; 
+    }
+    
 }

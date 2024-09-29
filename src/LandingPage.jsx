@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import axios from "axios";
 import profil from "./images/profil-english.png";
 import profil1 from "./images/profil1.png";
@@ -7,8 +7,58 @@ import { CgProfile } from "react-icons/cg";
 import { CgTime } from "react-icons/cg";
 import { CgPullClear } from "react-icons/cg";
 import Accordion from "./Components/Accordion";
-
+import Humburger from 'hamburger-react'
 const LandingPage = () => {
+  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setActive(true);
+      } else {
+        setActive(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 500) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (window.innerWidth <= 1200) {
+      closeMenu();
+    }
+  }, []);
+
+
+
+
+
+  // edarrif
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,13 +100,15 @@ const LandingPage = () => {
   };
 
   return (
+    
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
-      <header className="bg-white text-blue p-4 fixed w-full z-10">
-        <div className="container mx-auto flex justify-between items-center">
+      <div className="all-home">
+      <header className={active ? 'activenav' : ''} >
+        <div className="container mx-auto flex justify-between px-5 items-center">
           <h1 className="text-3xl font-bold">EnglishMaster</h1>
           <nav>
-            <a href="#home" className="mx-2 hover:underline">
+            <a  href="#home" className="mx-2 hover:underline">
               Home
             </a>
             <a href="#features" className="mx-2 hover:underline">
@@ -75,20 +127,47 @@ const LandingPage = () => {
               Contact
             </a>
           </nav>
+          <div className="menu">
+          <Humburger toggled={open} toggle={setOpen} size={28} />
+        </div>
         </div>
       </header>
-
+         
+      {open && (
+        <div className="menu-content">
+        <nav>
+            <a onClick={closeMenu} href="#home" className="mx-2 hover:underline">
+              Home
+            </a>
+            <a onClick={closeMenu}  href="#features" className="mx-2 hover:underline">
+              Features
+            </a>
+            <a onClick={closeMenu}  href="#testimonials" className="mx-2 hover:underline">
+              Testimonials
+            </a>
+            <a onClick={closeMenu}  href="#pricing" className="mx-2 hover:underline">
+              Pricing
+            </a>
+            <a onClick={closeMenu}  href="#faq" className="mx-2 hover:underline">
+              FAQ
+            </a>
+            <a onClick={closeMenu}  href="#contact" className="mx-2 hover:underline">
+              Contact
+            </a>
+          </nav>
+        </div>
+      )}
       {/* Hero Section */}
       <section id="home">
         <div className="home-info">
           <h1>
             Master English <br /> with Our Expert Courses
           </h1>
-          <p>
-            Unlock new opportunities by learning English with us! <br />
+          <p className='descrp-home'>
+            Unlock new opportunities by learning English with us! 
             Start your journey to fluency today.
           </p>
-          <p className="text-[18px] flex gap-2 text-[#003b7a]">
+          <p className="text-[18px]  flex gap-2 text-[#003b7a]" id='contact-us'>
             Contact us for an instant demo class:
           </p>
           <a href="#contact">
@@ -99,12 +178,14 @@ const LandingPage = () => {
           <img src={profil} alt="" />
         </div>
       </section>
-
+      </div>
       {/* Features Section */}
+      <div >
       <div id="features" className="text-center py-12">
         <h2 className="f-title">Why Choose EnglishMaster?</h2>
-        <div className="flex justify-around">
-          <div className="block w-72 shadow-md p-5 rounded-lg cursor-pointer transform hover:scale-105">
+        <div className="box-all">
+        <div className="features-box" >
+          <div  className="block w-72 shadow-md p-5 rounded-lg cursor-pointer transform hover:scale-105 ">
             <div className="flex justify-center">
               <CgProfile size={60} />
             </div>
@@ -143,6 +224,8 @@ const LandingPage = () => {
             </p>
           </div>
         </div>
+        </div>
+      </div>
       </div>
 
       {/* Testimonials Section */}
@@ -182,11 +265,13 @@ const LandingPage = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="bg-white py-20">
-        <div className="container mx-auto px-4">
+      
+      <section id="pricing" className="bg-white py-20 ">
+        <div className="container mx-auto ">
           <h2 className="f-title">Affordable Pricing Plans</h2>
-          <div className="flex justify-center space-x-8">
-            <div className="bg-gray-100 p-8 rounded-lg shadow-lg text-center border-4 border-blue-500">
+          
+          <div id='prc-box' className=" space-x-8">
+            <div id='prc-card' className="bg-gray-100 p-8 rounded-lg shadow-lg text-center border-4 border-blue-500">
               <h3 className="text-2xl font-bold mb-4">Basic Plan</h3>
               <p className="text-4xl font-bold mb-4">
                 $49<span className="text-sm">/month</span>
@@ -197,7 +282,7 @@ const LandingPage = () => {
                 <li>✓ Weekly progress reports</li>
               </ul>
             </div>
-            <div className="bg-gray-100 p-8 rounded-lg shadow-lg text-center border-4 border-blue-500">
+            <div id='prc-card' className="bg-gray-100 p-8 rounded-lg shadow-lg text-center border-4 border-blue-500">
               <h3 className="text-2xl font-bold mb-4">Premium Plan</h3>
               <p className="text-4xl font-bold mb-4">
                 $89<span className="text-sm">/month</span>
@@ -209,9 +294,11 @@ const LandingPage = () => {
                 <li>✓ Personalized study plan</li>
               </ul>
             </div>
+          
           </div>
         </div>
       </section>
+      
 
       {/* FAQ Section */}
       <section id="faq" className="bg-gray-200 py-20">
