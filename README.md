@@ -2,9 +2,10 @@
 
 You can access the live website via: [https://english-course-landing-page.vercel.app/](https://english-course-landing-page.vercel.app/)
 
-A simple landing page for **EnglishMaster** courses, built with React and Tailwind CSS. The landing page features a contact form to capture leads, which are automatically stored in a Google Sheet using Pabbly Connect.
+A simple and responsive landing page for **EnglishMaster** courses, built with React and Tailwind CSS. The landing page features a contact form to capture leads, which are automatically stored in a Google Sheet using Pabbly Connect.
 
 ## Features
+- **Responsive Design**: Works on all devices.
 - **Lead Capture Form**: Collects names, emails, and messages from potential students.
 - **Google Sheets Integration**: All form submissions are stored in a Google Sheet.
 - **Testimonials**: Student feedback on the course.
